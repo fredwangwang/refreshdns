@@ -1,0 +1,45 @@
+/* Alerts */
+"alert.install.title" = "Instalar herramienta auxiliar del sistema";
+"alert.install.message" = "RefreshDNS necesita instalar una herramienta auxiliar ligera del sistema (se requiere autorización de administrador una sola vez) para que las próximas limpiezas de DNS no pidan contraseña.\n\nSe ejecuta bajo demanda, no consume memoria en reposo y solo ejecuta comandos fijos para limpiar la caché DNS.";
+"alert.install.confirm" = "Instalar y limpiar DNS";
+
+"alert.update.title" = "Actualizar herramienta auxiliar del sistema";
+"alert.update.message" = "La versión instalada de la herramienta auxiliar (%@) no coincide con esta app (%@). Se requiere autorización de administrador una vez para actualizarla.";
+"alert.update.unknown_version" = "desconocida";
+"alert.update.confirm" = "Actualizar y limpiar DNS";
+
+"alert.install_failed.title" = "Error al instalar la herramienta auxiliar";
+"alert.uninstall.title" = "Desinstalar RefreshDNS";
+"alert.uninstall.message" = "Esto detendrá y eliminará la herramienta auxiliar del sistema (LaunchDaemon) y moverá RefreshDNS.app a la Papelera.";
+"alert.uninstall.confirm" = "Desinstalar";
+"alert.uninstall_failed.title" = "Error al desinstalar";
+"button.cancel" = "Cancelar";
+"button.ok" = "Aceptar";
+
+/* HUD */
+"hud.success.title" = "Caché DNS limpiada";
+"hud.success.subtitle" = "mDNSResponder recargado · %d ms";
+"hud.failure.title" = "Error al limpiar DNS";
+"hud.uninstall.title" = "RefreshDNS desinstalado";
+"hud.uninstall.subtitle" = "Herramienta auxiliar eliminada y app movida a la Papelera";
+
+/* Authorization & Errors */
+"auth.prompt" = "RefreshDNS necesita instalar su herramienta auxiliar del sistema para que las futuras limpiezas de DNS no pidan contraseña de administrador.";
+"auth.uninstall_prompt" = "RefreshDNS necesita permiso de administrador para eliminar su herramienta auxiliar del sistema.";
+"error.xpc.invalidated" = "No se pudo conectar con la herramienta auxiliar del sistema. Inténtalo de nuevo o reinstálala.";
+"error.xpc.interrupted" = "Se interrumpió la conexión con la herramienta auxiliar del sistema.";
+"error.xpc.timeout" = "Se agotó el tiempo de espera al limpiar DNS. Inténtalo de nuevo.";
+"error.xpc.communication" = "Error de comunicación: %@";
+"error.xpc.proxy" = "No se pudo crear el proxy de la herramienta auxiliar.";
+"error.install.missing_files" = "Faltan los archivos de la herramienta auxiliar en el paquete de la app. Vuelve a compilar la app.";
+"error.install.failed_code" = "Error al instalar la herramienta auxiliar (código %d).";
+"error.install.launch_failed" = "No se pudo iniciar el instalador con autorización: %@";
+"error.uninstall.failed_code" = "Error al eliminar la herramienta auxiliar (código %d).";
+"error.uninstall.launch_failed" = "No se pudo iniciar el desinstalador con autorización: %@";
+"error.uninstall.trash_failed" = "Se eliminó la herramienta auxiliar, pero no se pudo mover RefreshDNS.app a la Papelera: %@";
+
+/* Helper Errors */
+"error.helper.unavailable" = "El servicio de la herramienta auxiliar no está disponible.";
+"error.helper.not_root" = "La herramienta auxiliar no se está ejecutando como root (euid=%@).";
+"error.helper.dscacheutil" = "Error de dscacheutil (%@): %@";
+"error.helper.mdns" = "Error al recargar mDNSResponder (%@): %@";

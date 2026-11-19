@@ -1,0 +1,45 @@
+/* Alerts */
+"alert.install.title" = "Install System Helper";
+"alert.install.message" = "RefreshDNS needs to install a lightweight system helper (administrator permission required once) so future DNS flushes run without a password.\n\nThe helper launches on demand, uses no background memory when idle, and only runs fixed DNS cache flush commands.";
+"alert.install.confirm" = "Install & Flush DNS";
+
+"alert.update.title" = "Update System Helper";
+"alert.update.message" = "The installed helper version (%@) does not match this app (%@). Administrator permission is required once to update it.";
+"alert.update.unknown_version" = "unknown";
+"alert.update.confirm" = "Update & Flush DNS";
+
+"alert.install_failed.title" = "Failed to Install Helper";
+"alert.uninstall.title" = "Uninstall RefreshDNS";
+"alert.uninstall.message" = "This will stop and remove the system helper (LaunchDaemon) and move RefreshDNS.app to the Trash.";
+"alert.uninstall.confirm" = "Uninstall";
+"alert.uninstall_failed.title" = "Failed to Uninstall";
+"button.cancel" = "Cancel";
+"button.ok" = "OK";
+
+/* HUD */
+"hud.success.title" = "DNS Cache Flushed";
+"hud.success.subtitle" = "mDNSResponder reloaded · %d ms";
+"hud.failure.title" = "DNS Flush Failed";
+"hud.uninstall.title" = "RefreshDNS Uninstalled";
+"hud.uninstall.subtitle" = "System helper removed & app moved to Trash";
+
+/* Authorization & Errors */
+"auth.prompt" = "RefreshDNS needs to install its system helper so future DNS flushes won't require an administrator password.";
+"auth.uninstall_prompt" = "RefreshDNS needs administrator permission to remove its system helper.";
+"error.xpc.invalidated" = "Unable to connect to the system helper. Please try again or reinstall the helper.";
+"error.xpc.interrupted" = "Connection to the system helper was interrupted.";
+"error.xpc.timeout" = "Flushing DNS timed out. Please try again.";
+"error.xpc.communication" = "Communication failed: %@";
+"error.xpc.proxy" = "Unable to create helper proxy.";
+"error.install.missing_files" = "Helper files are missing from the app bundle. Please rebuild the app.";
+"error.install.failed_code" = "Helper installation failed (exit code %d).";
+"error.install.launch_failed" = "Unable to launch the authorization installer: %@";
+"error.uninstall.failed_code" = "Failed to remove system helper (exit code %d).";
+"error.uninstall.launch_failed" = "Unable to launch the authorization uninstaller: %@";
+"error.uninstall.trash_failed" = "System helper was removed, but RefreshDNS.app could not be moved to the Trash: %@";
+
+/* Helper Errors */
+"error.helper.unavailable" = "Helper service is unavailable.";
+"error.helper.not_root" = "Helper is not running as root (euid=%@).";
+"error.helper.dscacheutil" = "dscacheutil failed (%@): %@";
+"error.helper.mdns" = "mDNSResponder reload failed (%@): %@";
