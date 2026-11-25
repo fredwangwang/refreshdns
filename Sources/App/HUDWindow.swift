@@ -16,11 +16,10 @@ final class HUDWindowController {
         effectView.blendingMode = .behindWindow
         effectView.state = .active
         effectView.wantsLayer = true
-        effectView.layer?.cornerRadius = 18
+        effectView.layer?.cornerCurve = .circular
         effectView.layer?.masksToBounds = true
         effectView.layer?.borderWidth = 0.5
         effectView.layer?.borderColor = NSColor.labelColor.withAlphaComponent(0.14).cgColor
-        effectView.translatesAutoresizingMaskIntoConstraints = false
 
         let symbolName = success ? "checkmark.circle.fill" : "xmark.circle.fill"
         let symbolConfig = NSImage.SymbolConfiguration(pointSize: 22, weight: .semibold)
@@ -71,12 +70,18 @@ final class HUDWindowController {
         let fittedSize = effectView.fittingSize
         let width = max(190, ceil(fittedSize.width))
         let height = max(48, ceil(fittedSize.height))
+        let cornerRadius = min(18.0, height / 2.0)
 
         let screen = Self.activeScreen()
         let visibleFrame = screen?.visibleFrame ?? NSRect(x: 0, y: 0, width: 1280, height: 800)
         let originX = visibleFrame.midX - width / 2.0
         let originY = visibleFrame.maxY - height - 48.0
         let frame = NSRect(x: originX, y: originY, width: width, height: height)
+
+        effectView.frame = NSRect(origin: .zero, size: frame.size)
+        effectView.autoresizingMask = [.width, .height]
+        effectView.layer?.cornerRadius = cornerRadius
+        effectView.maskImage = Self.makeMaskImage(size: frame.size, cornerRadius: cornerRadius)
 
         let panel = NSPanel(
             contentRect: frame,
@@ -92,6 +97,7 @@ final class HUDWindowController {
         panel.collectionBehavior = [.canJoinAllSpaces, .transient, .ignoresCycle, .fullScreenAuxiliary]
         panel.alphaValue = 0.0
         panel.contentView = effectView
+        panel.invalidateShadow()
 
         self.panel = panel
         panel.orderFrontRegardless()
@@ -118,6 +124,14 @@ final class HUDWindowController {
                     completion()
                 }
             })
+        }
+    }
+
+    private static func makeMaskImage(size: NSSize, cornerRadius: CGFloat) -> NSImage {
+        NSImage(size: size, flipped: false) { rect in
+            NSColor.black.setFill()
+            NSBezierPath(roundedRect: rect, xRadius: cornerRadius, yRadius: cornerRadius).fill()
+            return true
         }
     }
 
