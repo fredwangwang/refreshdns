@@ -13,6 +13,7 @@ enum L10n {
     static var installAlertTitle: String { tr("alert.install.title") }
     static var installAlertMessage: String { tr("alert.install.message") }
     static var installAlertConfirm: String { tr("alert.install.confirm") }
+    static var installAlertWakeCheckbox: String { tr("alert.install.wake_checkbox") }
 
     static var updateAlertTitle: String { tr("alert.update.title") }
     static func updateAlertMessage(installed: String?, current: String) -> String {
@@ -21,6 +22,7 @@ enum L10n {
     static var updateAlertConfirm: String { tr("alert.update.confirm") }
 
     static var installFailedTitle: String { tr("alert.install_failed.title") }
+    static var wakeFailedTitle: String { tr("alert.wake_failed.title") }
     static var uninstallAlertTitle: String { tr("alert.uninstall.title") }
     static var uninstallAlertMessage: String { tr("alert.uninstall.message") }
     static var uninstallAlertConfirm: String { tr("alert.uninstall.confirm") }
@@ -28,14 +30,44 @@ enum L10n {
     static var cancel: String { tr("button.cancel") }
     static var ok: String { tr("button.ok") }
 
+    // Options Window
+    static var optionsWindowTitle: String { tr("options.window.title") }
+    static func optionsStatusReady(version: String) -> String {
+        trFormat("options.status.ready", version)
+    }
+    static func optionsStatusNotInstalled(version: String) -> String {
+        trFormat("options.status.not_installed", version)
+    }
+    static func optionsStatusNeedsUpdate(version: String) -> String {
+        trFormat("options.status.needs_update", version)
+    }
+    static var optionsWakeToggleTitle: String { tr("options.wake.toggle") }
+    static var optionsWakeToggleDescription: String { tr("options.wake.description") }
+    static var optionsWakeHUDTitle: String { tr("options.wake.hud_toggle") }
+    static var optionsUninstallButton: String { tr("options.button.uninstall") }
+    static var optionsFlushNowButton: String { tr("options.button.flush_now") }
+    static var optionsDoneButton: String { tr("options.button.done") }
+
     // HUD
     static var hudSuccessTitle: String { tr("hud.success.title") }
     static func hudSuccessSubtitle(ms: Int) -> String {
         trFormat("hud.success.subtitle", ms)
     }
+    static func hudWakeSuccessSubtitle(ms: Int) -> String {
+        trFormat("hud.wake_success.subtitle", ms)
+    }
     static var hudFailureTitle: String { tr("hud.failure.title") }
     static var hudUninstallTitle: String { tr("hud.uninstall.title") }
     static var hudUninstallSubtitle: String { tr("hud.uninstall.subtitle") }
+
+    // Wake Agent Errors
+    static var errorWakeMissingBinary: String { tr("error.wake.missing_binary") }
+    static func errorWakePlistFailed(_ detail: String) -> String {
+        trFormat("error.wake.plist_failed", detail)
+    }
+    static func errorWakeLaunchctlFailed(_ detail: String) -> String {
+        trFormat("error.wake.launchctl_failed", detail)
+    }
 
     // Auth & XPC errors
     static var authPrompt: String { tr("auth.prompt") }

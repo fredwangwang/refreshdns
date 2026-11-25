@@ -2,6 +2,7 @@
 "alert.install.title" = "Install System Helper";
 "alert.install.message" = "RefreshDNS needs to install a lightweight system helper (administrator permission required once) so future DNS flushes run without a password.\n\nThe helper launches on demand, uses no background memory when idle, and only runs fixed DNS cache flush commands.";
 "alert.install.confirm" = "Install & Flush DNS";
+"alert.install.wake_checkbox" = "Auto-refresh DNS when waking from sleep";
 
 "alert.update.title" = "Update System Helper";
 "alert.update.message" = "The installed helper version (%@) does not match this app (%@). Administrator permission is required once to update it.";
@@ -9,19 +10,38 @@
 "alert.update.confirm" = "Update & Flush DNS";
 
 "alert.install_failed.title" = "Failed to Install Helper";
+"alert.wake_failed.title" = "Failed to Update Wake Refresh";
 "alert.uninstall.title" = "Uninstall RefreshDNS";
-"alert.uninstall.message" = "This will stop and remove the system helper (LaunchDaemon) and move RefreshDNS.app to the Trash.";
+"alert.uninstall.message" = "This will stop and remove the system helper (LaunchDaemon), remove the wake listener if enabled, and move RefreshDNS.app to the Trash.";
 "alert.uninstall.confirm" = "Uninstall";
 "alert.uninstall_failed.title" = "Failed to Uninstall";
 "button.cancel" = "Cancel";
 "button.ok" = "OK";
 
+/* Options Window */
+"options.window.title" = "RefreshDNS Options";
+"options.status.ready" = "v%@ · System helper ready";
+"options.status.not_installed" = "v%@ · System helper not installed";
+"options.status.needs_update" = "v%@ · System helper update required";
+"options.wake.toggle" = "Auto-refresh DNS on wake from sleep";
+"options.wake.description" = "Runs a lightweight background wake listener (no menu bar icon) and flushes DNS automatically when your Mac wakes from sleep.";
+"options.wake.hud_toggle" = "Show HUD notification on wake refresh";
+"options.button.uninstall" = "Uninstall...";
+"options.button.flush_now" = "Flush DNS Now";
+"options.button.done" = "Done";
+
 /* HUD */
 "hud.success.title" = "DNS Cache Flushed";
 "hud.success.subtitle" = "mDNSResponder reloaded · %d ms";
+"hud.wake_success.subtitle" = "Auto-refreshed on wake · %d ms";
 "hud.failure.title" = "DNS Flush Failed";
 "hud.uninstall.title" = "RefreshDNS Uninstalled";
 "hud.uninstall.subtitle" = "System helper removed & app moved to Trash";
+
+/* Wake Agent Errors */
+"error.wake.missing_binary" = "Wake listener binary is missing from the app bundle. Please rebuild or reinstall RefreshDNS.";
+"error.wake.plist_failed" = "Unable to save wake LaunchAgent configuration: %@";
+"error.wake.launchctl_failed" = "Unable to start wake listener via launchctl: %@";
 
 /* Authorization & Errors */
 "auth.prompt" = "RefreshDNS needs to install its system helper so future DNS flushes won't require an administrator password.";

@@ -44,6 +44,13 @@ compile_universal "$HELPER_DIR/me.wanghuan.refreshdns.helper" \
     "$ROOT_DIR/Sources/Shared/RefreshDNSProtocol.swift" \
     "$ROOT_DIR/Sources/Helper/main.swift"
 
+echo "==> Compiling wake listener agent (me.wanghuan.refreshdns.wakeagent)..."
+compile_universal "$HELPER_DIR/me.wanghuan.refreshdns.wakeagent" \
+    -framework Foundation \
+    -framework IOKit \
+    "$ROOT_DIR/Sources/Shared/RefreshDNSProtocol.swift" \
+    "$ROOT_DIR/Sources/WakeAgent/main.swift"
+
 echo "==> Compiling RefreshDNS app..."
 compile_universal "$MACOS_DIR/RefreshDNS" \
     -framework Foundation \
@@ -52,7 +59,9 @@ compile_universal "$MACOS_DIR/RefreshDNS" \
     "$ROOT_DIR/Sources/Shared/RefreshDNSProtocol.swift" \
     "$ROOT_DIR/Sources/App/Localization.swift" \
     "$ROOT_DIR/Sources/App/HelperClient.swift" \
+    "$ROOT_DIR/Sources/App/WakeAgentManager.swift" \
     "$ROOT_DIR/Sources/App/HUDWindow.swift" \
+    "$ROOT_DIR/Sources/App/OptionsWindow.swift" \
     "$ROOT_DIR/Sources/App/main.swift"
 
 rm -rf "$TMP_BIN_DIR"
@@ -72,8 +81,9 @@ swift "$ROOT_DIR/scripts/generate_icon.swift" "$ICONSET_DIR"
 iconutil -c icns "$ICONSET_DIR" -o "$RESOURCES_DIR/AppIcon.icns"
 rm -rf "$ICONSET_DIR"
 
-echo "==> Signing helper and app bundle (identity: $SIGN_IDENTITY)..."
+echo "==> Signing helpers and app bundle (identity: $SIGN_IDENTITY)..."
 codesign --force --sign "$SIGN_IDENTITY" "$HELPER_DIR/me.wanghuan.refreshdns.helper"
+codesign --force --sign "$SIGN_IDENTITY" "$HELPER_DIR/me.wanghuan.refreshdns.wakeagent"
 codesign --force --sign "$SIGN_IDENTITY" "$APP_BUNDLE"
 
 echo "==> Built successfully: $APP_BUNDLE"

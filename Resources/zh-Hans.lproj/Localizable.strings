@@ -2,6 +2,7 @@
 "alert.install.title" = "首次使用需要安装系统辅助工具";
 "alert.install.message" = "RefreshDNS 需要将轻量级辅助工具安装到系统目录（仅需管理员授权一次），之后每次运行即可免密一键刷新 DNS。\n\n该工具由系统按需启动、不常驻占内存，且仅执行固定的 DNS 缓存刷新命令。";
 "alert.install.confirm" = "安装并刷新 DNS";
+"alert.install.wake_checkbox" = "从休眠中恢复时自动刷新 DNS";
 
 "alert.update.title" = "需要更新系统辅助工具";
 "alert.update.message" = "已安装的辅助工具版本（%@）与当前应用（%@）不一致，需要管理员授权更新一次。";
@@ -9,19 +10,38 @@
 "alert.update.confirm" = "更新并刷新 DNS";
 
 "alert.install_failed.title" = "安装辅助工具失败";
+"alert.wake_failed.title" = "更新休眠唤醒设置失败";
 "alert.uninstall.title" = "卸载 RefreshDNS";
-"alert.uninstall.message" = "这将停止并移除系统辅助工具（LaunchDaemon），并将 RefreshDNS.app 移至废纸篓。";
+"alert.uninstall.message" = "这将停止并移除系统辅助工具（LaunchDaemon）和唤醒监听服务（如已开启），并将 RefreshDNS.app 移至废纸篓。";
 "alert.uninstall.confirm" = "卸载";
 "alert.uninstall_failed.title" = "卸载失败";
 "button.cancel" = "取消";
 "button.ok" = "好";
 
+/* Options Window */
+"options.window.title" = "RefreshDNS 选项";
+"options.status.ready" = "v%@ · 系统辅助工具已就绪";
+"options.status.not_installed" = "v%@ · 尚未安装系统辅助工具";
+"options.status.needs_update" = "v%@ · 系统辅助工具需要更新";
+"options.wake.toggle" = "休眠唤醒时自动刷新 DNS";
+"options.wake.description" = "开启后将在后台运行极轻量唤醒监听服务（无菜单栏图标），在 Mac 从休眠中恢复时自动刷新 DNS 缓存。";
+"options.wake.hud_toggle" = "唤醒自动刷新时显示 HUD 提示";
+"options.button.uninstall" = "卸载...";
+"options.button.flush_now" = "立即刷新 DNS";
+"options.button.done" = "完成";
+
 /* HUD */
 "hud.success.title" = "DNS 缓存已刷新";
 "hud.success.subtitle" = "mDNSResponder 已重新加载 · %d ms";
+"hud.wake_success.subtitle" = "休眠唤醒自动刷新 · %d ms";
 "hud.failure.title" = "DNS 刷新失败";
 "hud.uninstall.title" = "RefreshDNS 已卸载";
 "hud.uninstall.subtitle" = "已移除系统辅助工具并将应用移至废纸篓";
+
+/* Wake Agent Errors */
+"error.wake.missing_binary" = "应用包内缺少唤醒监听程序，请重新构建或重新安装 RefreshDNS。";
+"error.wake.plist_failed" = "无法写入唤醒监听配置：%@";
+"error.wake.launchctl_failed" = "无法通过 launchctl 启动唤醒监听服务：%@";
 
 /* Authorization & Errors */
 "auth.prompt" = "RefreshDNS 需要安装系统辅助工具，之后刷新 DNS 将不再需要管理员密码。";

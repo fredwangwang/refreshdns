@@ -2,6 +2,7 @@
 "alert.install.title" = "Instalar herramienta auxiliar del sistema";
 "alert.install.message" = "RefreshDNS necesita instalar una herramienta auxiliar ligera del sistema (se requiere autorización de administrador una sola vez) para que las próximas limpiezas de DNS no pidan contraseña.\n\nSe ejecuta bajo demanda, no consume memoria en reposo y solo ejecuta comandos fijos para limpiar la caché DNS.";
 "alert.install.confirm" = "Instalar y limpiar DNS";
+"alert.install.wake_checkbox" = "Limpiar DNS automáticamente al despertar del reposo";
 
 "alert.update.title" = "Actualizar herramienta auxiliar del sistema";
 "alert.update.message" = "La versión instalada de la herramienta auxiliar (%@) no coincide con esta app (%@). Se requiere autorización de administrador una vez para actualizarla.";
@@ -9,19 +10,38 @@
 "alert.update.confirm" = "Actualizar y limpiar DNS";
 
 "alert.install_failed.title" = "Error al instalar la herramienta auxiliar";
+"alert.wake_failed.title" = "Error al actualizar la limpieza al despertar";
 "alert.uninstall.title" = "Desinstalar RefreshDNS";
-"alert.uninstall.message" = "Esto detendrá y eliminará la herramienta auxiliar del sistema (LaunchDaemon) y moverá RefreshDNS.app a la Papelera.";
+"alert.uninstall.message" = "Esto detendrá y eliminará la herramienta auxiliar del sistema (LaunchDaemon), el servicio de activación al despertar si está activo, y moverá RefreshDNS.app a la Papelera.";
 "alert.uninstall.confirm" = "Desinstalar";
 "alert.uninstall_failed.title" = "Error al desinstalar";
 "button.cancel" = "Cancelar";
 "button.ok" = "Aceptar";
 
+/* Options Window */
+"options.window.title" = "Opciones de RefreshDNS";
+"options.status.ready" = "v%@ · Herramienta auxiliar lista";
+"options.status.not_installed" = "v%@ · Herramienta auxiliar no instalada";
+"options.status.needs_update" = "v%@ · Se requiere actualizar la herramienta";
+"options.wake.toggle" = "Limpiar DNS automáticamente al despertar del reposo";
+"options.wake.description" = "Ejecuta un ligero servicio en segundo plano (sin icono en la barra de menús) y limpia la caché DNS automáticamente cuando tu Mac sale del reposo.";
+"options.wake.hud_toggle" = "Mostrar notificación HUD al despertar";
+"options.button.uninstall" = "Desinstalar...";
+"options.button.flush_now" = "Limpiar DNS ahora";
+"options.button.done" = "Listo";
+
 /* HUD */
 "hud.success.title" = "Caché DNS limpiada";
 "hud.success.subtitle" = "mDNSResponder recargado · %d ms";
+"hud.wake_success.subtitle" = "Limpieza automática al despertar · %d ms";
 "hud.failure.title" = "Error al limpiar DNS";
 "hud.uninstall.title" = "RefreshDNS desinstalado";
 "hud.uninstall.subtitle" = "Herramienta auxiliar eliminada y app movida a la Papelera";
+
+/* Wake Agent Errors */
+"error.wake.missing_binary" = "Falta el binario del servicio de activación en el paquete de la app. Vuelve a compilar o reinstalar RefreshDNS.";
+"error.wake.plist_failed" = "No se pudo guardar la configuración del LaunchAgent de activación: %@";
+"error.wake.launchctl_failed" = "No se pudo iniciar el servicio de activación con launchctl: %@";
 
 /* Authorization & Errors */
 "auth.prompt" = "RefreshDNS necesita instalar su herramienta auxiliar del sistema para que las futuras limpiezas de DNS no pidan contraseña de administrador.";
