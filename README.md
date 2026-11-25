@@ -18,7 +18,7 @@ A minimal, native macOS one-click utility to flush the system DNS cache (`dscach
 
 ### Option 1: Download DMG (Releases)
 
-1. Download the latest `RefreshDNS-*.dmg` (e.g. `RefreshDNS-1.1.0.dmg`) from [Releases](https://github.com/fredwangwang/refreshdns/releases).
+1. Download the latest `RefreshDNS-*.dmg` (e.g. `RefreshDNS-1.1.1.dmg`) from [Releases](https://github.com/fredwangwang/refreshdns/releases).
 2. Open the DMG and drag `RefreshDNS.app` into `Applications`.
 3. Launch `RefreshDNS` from Spotlight, Dock, or Finder.
    - **Note (unsigned/ad-hoc release)**: Because this release is not notarized with a paid Apple Developer ID, macOS Gatekeeper may block the first launch. If that happens, run:

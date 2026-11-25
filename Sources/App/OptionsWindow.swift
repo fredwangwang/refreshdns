@@ -25,7 +25,7 @@ final class OptionsWindowController: NSObject, NSWindowDelegate {
     var onClose: (() -> Void)?
 
     func show(helperStatus: HelperStatus, wakeEnabled: Bool, showHUDOnWake: Bool) {
-        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1.0"
+        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1.1"
 
         let contentView = NSView()
         contentView.translatesAutoresizingMaskIntoConstraints = false
@@ -209,7 +209,7 @@ final class OptionsWindowController: NSObject, NSWindowDelegate {
     }
 
     func updateHelperStatus(_ status: HelperStatus) {
-        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1.0"
+        let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.1.1"
         statusLabel?.stringValue = Self.statusSubtitle(version: appVersion, status: status)
     }
 
